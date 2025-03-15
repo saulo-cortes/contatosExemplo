@@ -1,3 +1,4 @@
+import { ShareActionSheetIOSOptions } from "react-native";
 import { api } from "./api";
 
 export interface Contato {
@@ -21,3 +22,8 @@ export const addContato = async (contato: Omit<Contato, "_id">) => {
 export const deleteContato = async (id: string) => {
   return await api.delete(`/contatos/${id}`);
 };
+
+export const updateContato = async (
+    id: string,
+    contato: Partial<Contato>
+) => {return await api.put(`\contatos${id}`, contato);}
